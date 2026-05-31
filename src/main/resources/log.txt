@@ -8913,3 +8913,717 @@ Task id: 11
 	495800 ns executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
 
 2026-04-04 18:11:13 INFO  TaskDataController - Task marked as complete.
+2026-04-05 19:49:00 INFO  Main - Starting the Application....
+2026-04-05 19:49:10 DEBUG logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2026-04-05 19:49:11 DEBUG service - HHH010455: Adding integrator: org.hibernate.boot.beanvalidation.BeanValidationIntegrator
+2026-04-05 19:49:11 DEBUG service - HHH010455: Adding integrator: org.hibernate.cache.internal.CollectionCacheInvalidator
+2026-04-05 19:49:11 INFO  core - HHH000001: Hibernate ORM core version 7.2.5.Final
+2026-04-05 19:49:11 DEBUG core - HHH000206: 'hibernate.properties' not found
+2026-04-05 19:49:11 DEBUG boot - HHH160204: cfg.xml document did not define namespaces; wrapping in custom event reader to introduce namespace information
+2026-04-05 19:49:11 DEBUG cache - HHH90001031: Cannot default RegionFactory since no RegionFactory strategies were registered
+2026-04-05 19:49:11 DEBUG cache - HHH90001029: Second-level cache disabled
+2026-04-05 19:49:12 WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-04-05 19:49:13 DEBUG pooling - HHH10001014: Initializing connection pool with 1 connections
+2026-04-05 19:49:13 DEBUG jdbc - HHH100017: Database:
+	name: MySQL
+	version: 8.0.35
+	major: 8
+	minor: 0
+2026-04-05 19:49:13 DEBUG jdbc - HHH100018: Driver:
+	name: MySQL Connector/J
+	version: mysql-connector-j-9.5.0 (Revision: a7b3c94f50efbddb9f0dd69b3e0d1aaa25305cd6)
+	major: 9
+	minor: 5
+	JDBC version: 4.2
+2026-04-05 19:49:13 WARN  deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-05 19:49:13 DEBUG dialect - HHH035001: Using dialect: org.hibernate.dialect.MySQLDialect, version: 8.0.35
+2026-04-05 19:49:13 DEBUG IdentifierHelperBuilder - IdentifierCaseStrategy for both quoted and unquoted identifiers was set to the same strategy [LOWER]; that will likely lead to problems in schema update and validation if using quoted identifiers
+2026-04-05 19:49:13 DEBUG jdbc - HHH100122: Using default JDBC fetch size: 0
+2026-04-05 19:49:13 INFO  pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/todo]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.35
+	Default catalog/schema: todo/undefined
+	Autocommit mode: false
+	Isolation level: REPEATABLE_READ
+	JDBC fetch size: none
+	Pool: DriverManagerConnectionProvider
+	Minimum pool size: 1
+	Maximum pool size: 20
+2026-04-05 19:49:16 DEBUG factory - HHH90020001: Instantiating factory [4a13ec03-465b-4b79-8352-25f8361b8c9d] with settings: {java.specification.version=21, sun.cpu.isalist=amd64, sun.jnu.encoding=Cp1252, hibernate.dialect=org.hibernate.dialect.MySQLDialect, java.class.path=D:\intellij projects\Todo_App\target\classes;C:\Users\elang\.m2\repository\com\mysql\mysql-connector-j\9.5.0\mysql-connector-j-9.5.0.jar;C:\Users\elang\.m2\repository\com\google\protobuf\protobuf-java\4.31.1\protobuf-java-4.31.1.jar;C:\Users\elang\.m2\repository\org\apache\logging\log4j\log4j-api\2.25.3\log4j-api-2.25.3.jar;C:\Users\elang\.m2\repository\org\apache\logging\log4j\log4j-core\2.25.3\log4j-core-2.25.3.jar;C:\Users\elang\.m2\repository\org\projectlombok\lombok\1.18.42\lombok-1.18.42.jar;C:\Users\elang\.m2\repository\org\hibernate\orm\hibernate-core\7.2.5.Final\hibernate-core-7.2.5.Final.jar;C:\Users\elang\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.2.0\jakarta.persistence-api-3.2.0.jar;C:\Users\elang\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\elang\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\elang\.m2\repository\org\hibernate\models\hibernate-models\1.0.1\hibernate-models-1.0.1.jar;C:\Users\elang\.m2\repository\com\fasterxml\classmate\1.7.1\classmate-1.7.1.jar;C:\Users\elang\.m2\repository\net\bytebuddy\byte-buddy\1.17.8\byte-buddy-1.17.8.jar;C:\Users\elang\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.4\jakarta.xml.bind-api-4.0.4.jar;C:\Users\elang\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.4\jakarta.activation-api-2.1.4.jar;C:\Users\elang\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.6\jaxb-runtime-4.0.6.jar;C:\Users\elang\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.6\jaxb-core-4.0.6.jar;C:\Users\elang\.m2\repository\org\eclipse\angus\angus-activation\2.0.3\angus-activation-2.0.3.jar;C:\Users\elang\.m2\repository\org\glassfish\jaxb\txw2\4.0.6\txw2-4.0.6.jar;C:\Users\elang\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\elang\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\elang\.m2\repository\org\antlr\antlr4-runtime\4.13.2\antlr4-runtime-4.13.2.jar, java.vm.vendor=Oracle Corporation, sun.arch.data.model=64, user.variant=, java.vendor.url=https://java.oracle.com/, user.timezone=Asia/Calcutta, java.vm.specification.version=21, os.name=Windows 11, sun.java.launcher=SUN_STANDARD, user.country=US, sun.boot.library.path=C:\Program Files\Java\jdk-21\bin, sun.java.command=org.todo.Main, jdk.debug=release, sun.cpu.endian=little, user.home=C:\Users\elang, user.language=en, sun.stderr.encoding=UTF-8, java.specification.vendor=Oracle Corporation, java.version.date=2023-10-17, java.home=C:\Program Files\Java\jdk-21, file.separator=\, java.vm.compressedOopsMode=32-bit, sun.stdout.encoding=UTF-8, line.separator=
+, java.vm.specification.vendor=Oracle Corporation, java.specification.name=Java Platform API Specification, hibernate.hbm2ddl.auto=update, user.script=, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, java.runtime.version=21.0.1+12-LTS-29, user.name=elang, stdout.encoding=UTF-8, path.separator=;, hibernate.connection.username=****, os.version=10.0, java.runtime.name=Java(TM) SE Runtime Environment, hibernate.connection.url=jdbc:mysql://localhost:3306/todo, file.encoding=UTF-8, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, hibernate.show_sql=true, hibernate.connection.driver_class=com.mysql.cj.jdbc.Driver, java.vendor.url.bug=https://bugreport.java.com/bugreport/, java.io.tmpdir=C:\Users\elang\AppData\Local\Temp\, java.version=21.0.1, user.dir=D:\intellij projects\ToDo_App, os.arch=amd64, java.vm.specification.name=Java Virtual Machine Specification, hibernate.connection.password=****, sun.os.patch.level=, hibernate.boot.CfgXmlAccessService.key=org.hibernate.boot.cfgxml.spi.LoadedConfig@4315c28c, native.encoding=Cp1252, java.library.path=C:\Program Files\Java\jdk-21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Python312\Scripts\;C:\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\flutter\bin;C:\apache-maven-3.9.6\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;D:\nodejs\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\elang\AppData\Local\Microsoft\WindowsApps;D:\flutter\bin;;C:\Users\elang\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\elang\AppData\Roaming\npm;C:\Users\elang\AppData\Local\Microsoft\WinGet\Packages\Anthropic.ClaudeCode_Microsoft.Winget.Source_8wekyb3d8bbwe;;., stderr.encoding=UTF-8, java.vendor=Oracle Corporation, java.vm.info=mixed mode, sharing, java.vm.version=21.0.1+12-LTS-29, sun.io.unicode.encoding=UnicodeLittle, java.class.version=65.0}
+2026-04-05 19:49:17 DEBUG HQL_FUNCTIONS - Available HQL Functions:
+	abs(NUMERIC arg)
+	Double acos(NUMERIC arg)
+	adddate(DATE datetime, INTEGER days)
+	addtime(TIME datetime, TIME time)
+	Boolean any(BOOLEAN arg)
+	Integer ascii(STRING arg)
+	Double asin(NUMERIC arg)
+	Double atan(NUMERIC arg)
+	Double atan2(NUMERIC arg0, NUMERIC arg1)
+	avg(arg)
+	bit_and(arg)
+	Integer bit_length(STRING_OR_CLOB arg)
+	bit_or(arg)
+	bitand(arg0, arg1)
+	bitnot(arg)
+	bitor(arg0, arg1)
+	bitxor(arg0, arg1)
+	cast(arg as Type)
+	ceiling(NUMERIC arg)
+	Character char(INTEGER arg)
+	Integer character_length(STRING_OR_CLOB arg)
+	Character chr(INTEGER arg)
+	coalesce(arg0[, arg1[, ...]])
+	String collate(STRING string as COLLATION collation)
+	String concat(STRING string0[, STRING string1[, ...]])
+	Double cos(NUMERIC arg)
+	Double cosh(NUMERIC arg)
+	Double cot(NUMERIC arg)
+	Long count([distinct ]{arg|*})
+	Integer crc32(arg)
+	Double cume_dist([arg0[, ...]])
+	Date curdate()
+	Date current date
+	Time current time
+	Timestamp current timestamp
+	Date current_date
+	Instant current_instant
+	Time current_time
+	Timestamp current_timestamp
+	Time curtime()
+	Date date(arg)
+	dateadd(TEMPORAL_UNIT field, INTEGER magnitude, TEMPORAL datetime)
+	Integer datediff(DATE end, DATE start)
+	Integer day(DATE arg)
+	String dayname(DATE arg)
+	Integer dayofmonth(DATE arg)
+	Integer dayofweek(DATE arg)
+	Integer dayofyear(DATE arg)
+	Double degrees(NUMERIC arg)
+	Long dense_rank([arg0[, ...]])
+	Boolean every(BOOLEAN arg)
+	Double exp(NUMERIC arg)
+	extract(TEMPORAL_UNIT field from TEMPORAL arg)
+	first_valueANY value
+	floor(NUMERIC arg)
+	String format(TEMPORAL datetime as STRING pattern)
+	greatest(COMPARABLE arg0, COMPARABLE arg1[, arg2[, ...]])
+	String hex(arg)
+	Integer hour(TIME arg)
+	ifnull(arg0, arg1)
+	String insert(STRING string, INTEGER start, INTEGER length, STRING replacement)
+	Instant instant
+	Integer instr(STRING string, STRING pattern[, INTEGER start[, INTEGER occurrence]])
+	String json_array([arg0[, ...]])
+	String json_array_append(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	String json_array_insert(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	String json_arrayagg(arg0[, arg1])
+	Boolean json_exists(IMPLICIT_JSON arg0, STRING arg1)
+	String json_insert(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	String json_mergepatch(IMPLICIT_JSON arg0, IMPLICIT_JSON arg1[, arg2[, ...]])
+	String json_object( ... )
+	String json_objectagg(arg0, arg1[, arg2, arg3])
+	String json_query( ... )
+	String json_remove(IMPLICIT_JSON arg0, STRING arg1)
+	String json_replace(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	String json_set(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	json_value( ... )
+	lagANY value[, INTEGER offset[, ANY default]]
+	Date last_day(DATE arg)
+	last_valueANY value
+	leadANY value[, INTEGER offset[, ANY default]]
+	least(COMPARABLE arg0, COMPARABLE arg1[, arg2[, ...]])
+	String left(STRING string, INTEGER length)
+	Integer length(STRING_OR_CLOB arg)
+	String listagg(STRING arg0, STRING arg1)
+	Double ln(NUMERIC arg)
+	LocalDate local date
+	LocalDateTime local datetime
+	LocalTime local time
+	LocalDate local_date
+	LocalDateTime local_datetime
+	LocalTime local_time
+	Time localtime
+	Timestamp localtimestamp
+	Integer locate(STRING pattern, STRING string[, INTEGER start])
+	Double log(NUMERIC arg0[, NUMERIC arg1])
+	Double log10(NUMERIC arg)
+	Double log2(NUMERIC arg)
+	String lower(STRING string)
+	String lpad(string, length[, padding])
+	String ltrim(STRING string[, STRING characters])
+	Date makedate(INTEGER year, INTEGER dayofyear)
+	Time maketime(INTEGER hour, INTEGER min, INTEGER sec)
+	max(COMPARABLE arg)
+	byte[] md5(arg)
+	Integer microsecond(TIME arg)
+	min(COMPARABLE arg)
+	Integer minute(TIME arg)
+	Integer mod(INTEGER arg0, INTEGER arg1)
+	Integer month(DATE arg)
+	String monthname(DATE arg)
+	Timestamp now()
+	nth_valueANY value, INTEGER nth
+	nullif(arg0, arg1)
+	Integer octet_length(STRING_OR_CLOB arg)
+	OffsetDateTime offset datetime
+	OffsetDateTime offset_datetime
+	Integer ordinal(ENUM arg)
+	String overlay(STRING string placing STRING replacement from INTEGER start[ for INTEGER length])
+	String pad(STRING string with INTEGER length {leading|trailing}[ STRING character])
+	Double percent_rank([arg0[, ...]])
+	Double pi
+	Integer position(STRING pattern in STRING string)
+	Double power(NUMERIC arg0, NUMERIC arg1)
+	Integer quarter(DATE arg)
+	Double radians(NUMERIC arg)
+	Double rand([INTEGER seed])
+	Long rank([arg0[, ...]])
+	Boolean regexp_like(STRING arg0, STRING arg1[, STRING arg2])
+	String repeat(STRING string, INTEGER times)
+	String replace(STRING string, STRING pattern, STRING replacement)
+	String reverse(STRING arg)
+	String right(STRING string, INTEGER length)
+	round(NUMERIC number[, INTEGER places])
+	Long row_number()
+	String rpad(string, length[, padding])
+	String rtrim(STRING string[, STRING characters])
+	Integer second(TIME arg)
+	byte[] sha(arg)
+	String sha1(arg)
+	String sha2(arg0, arg1)
+	Integer sign(NUMERIC arg)
+	Double sin(NUMERIC arg)
+	Double sinh(NUMERIC arg)
+	String soundex(arg)
+	String space(INTEGER arg)
+	sql
+	Double sqrt(NUMERIC arg)
+	Double stddev(NUMERIC arg)
+	Double stddev_pop(NUMERIC arg)
+	Double stddev_samp(NUMERIC arg)
+	String str(arg)
+	String string(ENUM arg)
+	subdate(DATE datetime, INTEGER days)
+	String substr(STRING string, INTEGER start[, INTEGER length])
+	String substring(STRING string{ from|,} INTEGER start[{ for|,} INTEGER length])
+	subtime(TIME datetime, TIME time)
+	sum(arg)
+	Timestamp sysdate()
+	Double tan(NUMERIC arg)
+	Double tanh(NUMERIC arg)
+	String time(arg)
+	Timestamp timestamp(arg0[, arg1])
+	timestampadd(TEMPORAL_UNIT field, INTEGER magnitude, TEMPORAL datetime)
+	Long|Double timestampdiff(TEMPORAL_UNIT field, TEMPORAL start, TEMPORAL end)
+	String trim([[{leading|trailing|both} ][STRING arg0 ]from] STRING arg1)
+	trunc( ... )
+	truncate( ... )
+	String upper(STRING string)
+	Date utc_date
+	Time utc_time
+	Timestamp utc_timestamp
+	Double var_pop(NUMERIC arg)
+	Double var_samp(NUMERIC arg)
+	Double variance(NUMERIC arg)
+	Integer week(DATE arg)
+	Integer year(DATE arg)
+
+2026-04-05 19:49:18 DEBUG interceptor - HHH90005905: To-one property 'org.todo.data.entity.UserTaskMapping.task' was mapped with LAZY + NO_PROXY but the class was not enhanced
+2026-04-05 19:49:18 DEBUG interceptor - HHH90005905: To-one property 'org.todo.data.entity.UserTaskMapping.task' was mapped with LAZY + NO_PROXY but the class was not enhanced
+2026-04-05 19:49:18 DEBUG interceptor - HHH90005905: To-one property 'org.todo.data.entity.UserTaskMapping.user' was mapped with LAZY + NO_PROXY but the class was not enhanced
+2026-04-05 19:49:18 DEBUG interceptor - HHH90005905: To-one property 'org.todo.data.entity.UserTaskMapping.user' was mapped with LAZY + NO_PROXY but the class was not enhanced
+2026-04-05 19:49:18 DEBUG core - HHH000513: Unable to create the ReflectionOptimizer for [org.todo.data.entity.UserTaskMapping]: private accessor [task]
+2026-04-05 19:49:18 DEBUG interceptor - HHH90005905: To-one property 'org.todo.data.entity.UserTaskMapping.task' was mapped with LAZY + NO_PROXY but the class was not enhanced
+2026-04-05 19:49:18 DEBUG interceptor - HHH90005905: To-one property 'org.todo.data.entity.UserTaskMapping.user' was mapped with LAZY + NO_PROXY but the class was not enhanced
+2026-04-05 19:49:18 DEBUG core - HHH000513: Unable to create the ReflectionOptimizer for [org.todo.data.entity.User]: private accessor [name]
+2026-04-05 19:49:18 DEBUG core - HHH000513: Unable to create the ReflectionOptimizer for [org.todo.data.entity.Task]: private accessor [completionDate]
+2026-04-05 19:49:20 INFO  core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-05 19:49:20 DEBUG service - HHH010454: EventListenerRegistry access via ServiceRegistry is deprecated - use 'sessionFactory.getEventEngine().getListenerRegistry()' instead
+2026-04-05 19:49:20 DEBUG Table - No alter strings for table: Task
+2026-04-05 19:49:20 DEBUG Table - No alter strings for table: USER_TASK_MAPPING
+2026-04-05 19:49:20 DEBUG Table - No alter strings for table: users
+2026-04-05 19:49:20 DEBUG factoryRegistry - HHH020384: Registering SessionFactory [4a13ec03-465b-4b79-8352-25f8361b8c9d] (<unnamed>)
+2026-04-05 19:49:20 DEBUG core - HHH006588: Opening session [tenant=null]
+2026-04-05 19:49:21 DEBUG SQL - select u1_0.ID,u1_0.NAME,u1_0.PASSWORD from users u1_0 where u1_0.NAME=?
+2026-04-05 19:49:21 DEBUG metrics - HHH000401: Logging session metrics:
+	606100 ns acquiring 1 JDBC connections
+	664700 ns releasing 1 JDBC connections
+	1095600 ns preparing 1 JDBC statements
+	12285400 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+2026-05-31 16:45:12 INFO  Main - Starting the Application....
+2026-05-31 16:45:12 DEBUG ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1165b38
+2026-05-31 16:45:12 DEBUG XmlBeanDefinitionReader - Loaded 5 bean definitions from class path resource [beans.xml]
+2026-05-31 16:45:12 WARN  ClassPathXmlApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [org.todo.data.entity.UserTaskMappingDBUtil] for bean with name 'UserTaskMappingDBUtil' defined in class path resource [beans.xml]
+2026-05-31 16:46:12 INFO  Main - Starting the Application....
+2026-05-31 16:46:12 DEBUG ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1165b38
+2026-05-31 16:46:13 DEBUG XmlBeanDefinitionReader - Loaded 5 bean definitions from class path resource [beans.xml]
+2026-05-31 16:46:13 DEBUG DefaultListableBeanFactory - Creating shared instance of singleton bean 'UserTaskMappingDBUtil'
+2026-05-31 16:46:13 DEBUG DefaultListableBeanFactory - Creating shared instance of singleton bean 'UserTaskMapId'
+2026-05-31 16:46:55 DEBUG logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2026-05-31 16:46:55 DEBUG service - HHH010455: Adding integrator: org.hibernate.boot.beanvalidation.BeanValidationIntegrator
+2026-05-31 16:46:55 DEBUG service - HHH010455: Adding integrator: org.hibernate.cache.internal.CollectionCacheInvalidator
+2026-05-31 16:46:55 INFO  core - HHH000001: Hibernate ORM core version 7.2.5.Final
+2026-05-31 16:46:55 DEBUG core - HHH000206: 'hibernate.properties' not found
+2026-05-31 16:46:55 DEBUG boot - HHH160204: cfg.xml document did not define namespaces; wrapping in custom event reader to introduce namespace information
+2026-05-31 16:46:55 DEBUG cache - HHH90001031: Cannot default RegionFactory since no RegionFactory strategies were registered
+2026-05-31 16:46:55 DEBUG cache - HHH90001029: Second-level cache disabled
+2026-05-31 16:46:56 WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-05-31 16:46:57 DEBUG pooling - HHH10001014: Initializing connection pool with 1 connections
+2026-05-31 16:46:57 DEBUG jdbc - HHH100017: Database:
+	name: MySQL
+	version: 8.0.35
+	major: 8
+	minor: 0
+2026-05-31 16:46:57 DEBUG jdbc - HHH100018: Driver:
+	name: MySQL Connector/J
+	version: mysql-connector-j-9.5.0 (Revision: a7b3c94f50efbddb9f0dd69b3e0d1aaa25305cd6)
+	major: 9
+	minor: 5
+	JDBC version: 4.2
+2026-05-31 16:46:57 WARN  deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-31 16:46:57 DEBUG dialect - HHH035001: Using dialect: org.hibernate.dialect.MySQLDialect, version: 8.0.35
+2026-05-31 16:46:57 DEBUG IdentifierHelperBuilder - IdentifierCaseStrategy for both quoted and unquoted identifiers was set to the same strategy [LOWER]; that will likely lead to problems in schema update and validation if using quoted identifiers
+2026-05-31 16:46:57 DEBUG jdbc - HHH100122: Using default JDBC fetch size: 0
+2026-05-31 16:46:57 INFO  pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/todo]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.35
+	Default catalog/schema: todo/undefined
+	Autocommit mode: false
+	Isolation level: REPEATABLE_READ
+	JDBC fetch size: none
+	Pool: DriverManagerConnectionProvider
+	Minimum pool size: 1
+	Maximum pool size: 20
+2026-05-31 16:46:58 DEBUG factory - HHH90020001: Instantiating factory [d342c996-9929-4584-bc6c-ccd503a2339c] with settings: {java.specification.version=21, sun.cpu.isalist=amd64, sun.jnu.encoding=Cp1252, hibernate.dialect=org.hibernate.dialect.MySQLDialect, java.class.path=D:\intellij projects\Todo_App\target\classes;C:\Users\elang\.m2\repository\com\mysql\mysql-connector-j\9.5.0\mysql-connector-j-9.5.0.jar;C:\Users\elang\.m2\repository\com\google\protobuf\protobuf-java\4.31.1\protobuf-java-4.31.1.jar;C:\Users\elang\.m2\repository\org\apache\logging\log4j\log4j-api\2.25.3\log4j-api-2.25.3.jar;C:\Users\elang\.m2\repository\org\apache\logging\log4j\log4j-core\2.25.3\log4j-core-2.25.3.jar;C:\Users\elang\.m2\repository\org\projectlombok\lombok\1.18.42\lombok-1.18.42.jar;C:\Users\elang\.m2\repository\org\hibernate\orm\hibernate-core\7.2.5.Final\hibernate-core-7.2.5.Final.jar;C:\Users\elang\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.2.0\jakarta.persistence-api-3.2.0.jar;C:\Users\elang\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\elang\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\elang\.m2\repository\org\hibernate\models\hibernate-models\1.0.1\hibernate-models-1.0.1.jar;C:\Users\elang\.m2\repository\com\fasterxml\classmate\1.7.1\classmate-1.7.1.jar;C:\Users\elang\.m2\repository\net\bytebuddy\byte-buddy\1.17.8\byte-buddy-1.17.8.jar;C:\Users\elang\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.4\jakarta.xml.bind-api-4.0.4.jar;C:\Users\elang\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.4\jakarta.activation-api-2.1.4.jar;C:\Users\elang\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.6\jaxb-runtime-4.0.6.jar;C:\Users\elang\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.6\jaxb-core-4.0.6.jar;C:\Users\elang\.m2\repository\org\eclipse\angus\angus-activation\2.0.3\angus-activation-2.0.3.jar;C:\Users\elang\.m2\repository\org\glassfish\jaxb\txw2\4.0.6\txw2-4.0.6.jar;C:\Users\elang\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\elang\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\elang\.m2\repository\org\antlr\antlr4-runtime\4.13.2\antlr4-runtime-4.13.2.jar;C:\Users\elang\.m2\repository\org\springframework\spring-context\6.2.12\spring-context-6.2.12.jar;C:\Users\elang\.m2\repository\org\springframework\spring-aop\6.2.12\spring-aop-6.2.12.jar;C:\Users\elang\.m2\repository\org\springframework\spring-beans\6.2.12\spring-beans-6.2.12.jar;C:\Users\elang\.m2\repository\org\springframework\spring-core\6.2.12\spring-core-6.2.12.jar;C:\Users\elang\.m2\repository\org\springframework\spring-jcl\6.2.12\spring-jcl-6.2.12.jar;C:\Users\elang\.m2\repository\org\springframework\spring-expression\6.2.12\spring-expression-6.2.12.jar;C:\Users\elang\.m2\repository\io\micrometer\micrometer-observation\1.14.12\micrometer-observation-1.14.12.jar;C:\Users\elang\.m2\repository\io\micrometer\micrometer-commons\1.14.12\micrometer-commons-1.14.12.jar, java.vm.vendor=Oracle Corporation, sun.arch.data.model=64, user.variant=, java.vendor.url=https://java.oracle.com/, user.timezone=Asia/Calcutta, java.vm.specification.version=21, os.name=Windows 11, sun.java.launcher=SUN_STANDARD, user.country=US, sun.boot.library.path=C:\Program Files\Java\jdk-21\bin, sun.java.command=org.todo.Main, jdk.debug=release, sun.cpu.endian=little, user.home=C:\Users\elang, user.language=en, sun.stderr.encoding=UTF-8, java.specification.vendor=Oracle Corporation, java.version.date=2023-10-17, java.home=C:\Program Files\Java\jdk-21, file.separator=\, java.vm.compressedOopsMode=32-bit, sun.stdout.encoding=UTF-8, line.separator=
+, java.vm.specification.vendor=Oracle Corporation, java.specification.name=Java Platform API Specification, hibernate.hbm2ddl.auto=update, user.script=, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, java.runtime.version=21.0.1+12-LTS-29, user.name=elang, stdout.encoding=UTF-8, path.separator=;, hibernate.connection.username=****, os.version=10.0, java.runtime.name=Java(TM) SE Runtime Environment, hibernate.connection.url=jdbc:mysql://localhost:3306/todo, file.encoding=UTF-8, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, hibernate.show_sql=true, hibernate.connection.driver_class=com.mysql.cj.jdbc.Driver, java.vendor.url.bug=https://bugreport.java.com/bugreport/, java.io.tmpdir=C:\Users\elang\AppData\Local\Temp\, java.version=21.0.1, user.dir=D:\intellij projects\ToDo_App, os.arch=amd64, java.vm.specification.name=Java Virtual Machine Specification, hibernate.connection.password=****, sun.os.patch.level=, hibernate.boot.CfgXmlAccessService.key=org.hibernate.boot.cfgxml.spi.LoadedConfig@686cf8ad, native.encoding=Cp1252, java.library.path=C:\Program Files\Java\jdk-21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Python312\Scripts\;C:\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\flutter\bin;C:\apache-maven-3.9.6\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;D:\nodejs\;C:\Program Files\GitHub CLI\;C:\Program Files\PowerShell\7\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\elang\AppData\Local\Microsoft\WindowsApps;D:\flutter\bin;C:\Users\elang\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\elang\AppData\Roaming\npm;C:\Users\elang\AppData\Local\Microsoft\WinGet\Packages\Anthropic.ClaudeCode_Microsoft.Winget.Source_8wekyb3d8bbwe;C:\Users\elang\AppData\Local\Microsoft\WinGet\Packages\GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe;C:\Python312;C:\Python312\Scripts;C:\Users\elang\AppData\Roaming\Python\Python312\Scripts\;;., stderr.encoding=UTF-8, java.vendor=Oracle Corporation, java.vm.info=mixed mode, sharing, java.vm.version=21.0.1+12-LTS-29, sun.io.unicode.encoding=UnicodeLittle, java.class.version=65.0}
+2026-05-31 16:46:58 DEBUG HQL_FUNCTIONS - Available HQL Functions:
+	abs(NUMERIC arg)
+	Double acos(NUMERIC arg)
+	adddate(DATE datetime, INTEGER days)
+	addtime(TIME datetime, TIME time)
+	Boolean any(BOOLEAN arg)
+	Integer ascii(STRING arg)
+	Double asin(NUMERIC arg)
+	Double atan(NUMERIC arg)
+	Double atan2(NUMERIC arg0, NUMERIC arg1)
+	avg(arg)
+	bit_and(arg)
+	Integer bit_length(STRING_OR_CLOB arg)
+	bit_or(arg)
+	bitand(arg0, arg1)
+	bitnot(arg)
+	bitor(arg0, arg1)
+	bitxor(arg0, arg1)
+	cast(arg as Type)
+	ceiling(NUMERIC arg)
+	Character char(INTEGER arg)
+	Integer character_length(STRING_OR_CLOB arg)
+	Character chr(INTEGER arg)
+	coalesce(arg0[, arg1[, ...]])
+	String collate(STRING string as COLLATION collation)
+	String concat(STRING string0[, STRING string1[, ...]])
+	Double cos(NUMERIC arg)
+	Double cosh(NUMERIC arg)
+	Double cot(NUMERIC arg)
+	Long count([distinct ]{arg|*})
+	Integer crc32(arg)
+	Double cume_dist([arg0[, ...]])
+	Date curdate()
+	Date current date
+	Time current time
+	Timestamp current timestamp
+	Date current_date
+	Instant current_instant
+	Time current_time
+	Timestamp current_timestamp
+	Time curtime()
+	Date date(arg)
+	dateadd(TEMPORAL_UNIT field, INTEGER magnitude, TEMPORAL datetime)
+	Integer datediff(DATE end, DATE start)
+	Integer day(DATE arg)
+	String dayname(DATE arg)
+	Integer dayofmonth(DATE arg)
+	Integer dayofweek(DATE arg)
+	Integer dayofyear(DATE arg)
+	Double degrees(NUMERIC arg)
+	Long dense_rank([arg0[, ...]])
+	Boolean every(BOOLEAN arg)
+	Double exp(NUMERIC arg)
+	extract(TEMPORAL_UNIT field from TEMPORAL arg)
+	first_valueANY value
+	floor(NUMERIC arg)
+	String format(TEMPORAL datetime as STRING pattern)
+	greatest(COMPARABLE arg0, COMPARABLE arg1[, arg2[, ...]])
+	String hex(arg)
+	Integer hour(TIME arg)
+	ifnull(arg0, arg1)
+	String insert(STRING string, INTEGER start, INTEGER length, STRING replacement)
+	Instant instant
+	Integer instr(STRING string, STRING pattern[, INTEGER start[, INTEGER occurrence]])
+	String json_array([arg0[, ...]])
+	String json_array_append(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	String json_array_insert(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	String json_arrayagg(arg0[, arg1])
+	Boolean json_exists(IMPLICIT_JSON arg0, STRING arg1)
+	String json_insert(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	String json_mergepatch(IMPLICIT_JSON arg0, IMPLICIT_JSON arg1[, arg2[, ...]])
+	String json_object( ... )
+	String json_objectagg(arg0, arg1[, arg2, arg3])
+	String json_query( ... )
+	String json_remove(IMPLICIT_JSON arg0, STRING arg1)
+	String json_replace(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	String json_set(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	json_value( ... )
+	lagANY value[, INTEGER offset[, ANY default]]
+	Date last_day(DATE arg)
+	last_valueANY value
+	leadANY value[, INTEGER offset[, ANY default]]
+	least(COMPARABLE arg0, COMPARABLE arg1[, arg2[, ...]])
+	String left(STRING string, INTEGER length)
+	Integer length(STRING_OR_CLOB arg)
+	String listagg(STRING arg0, STRING arg1)
+	Double ln(NUMERIC arg)
+	LocalDate local date
+	LocalDateTime local datetime
+	LocalTime local time
+	LocalDate local_date
+	LocalDateTime local_datetime
+	LocalTime local_time
+	Time localtime
+	Timestamp localtimestamp
+	Integer locate(STRING pattern, STRING string[, INTEGER start])
+	Double log(NUMERIC arg0[, NUMERIC arg1])
+	Double log10(NUMERIC arg)
+	Double log2(NUMERIC arg)
+	String lower(STRING string)
+	String lpad(string, length[, padding])
+	String ltrim(STRING string[, STRING characters])
+	Date makedate(INTEGER year, INTEGER dayofyear)
+	Time maketime(INTEGER hour, INTEGER min, INTEGER sec)
+	max(COMPARABLE arg)
+	byte[] md5(arg)
+	Integer microsecond(TIME arg)
+	min(COMPARABLE arg)
+	Integer minute(TIME arg)
+	Integer mod(INTEGER arg0, INTEGER arg1)
+	Integer month(DATE arg)
+	String monthname(DATE arg)
+	Timestamp now()
+	nth_valueANY value, INTEGER nth
+	nullif(arg0, arg1)
+	Integer octet_length(STRING_OR_CLOB arg)
+	OffsetDateTime offset datetime
+	OffsetDateTime offset_datetime
+	Integer ordinal(ENUM arg)
+	String overlay(STRING string placing STRING replacement from INTEGER start[ for INTEGER length])
+	String pad(STRING string with INTEGER length {leading|trailing}[ STRING character])
+	Double percent_rank([arg0[, ...]])
+	Double pi
+	Integer position(STRING pattern in STRING string)
+	Double power(NUMERIC arg0, NUMERIC arg1)
+	Integer quarter(DATE arg)
+	Double radians(NUMERIC arg)
+	Double rand([INTEGER seed])
+	Long rank([arg0[, ...]])
+	Boolean regexp_like(STRING arg0, STRING arg1[, STRING arg2])
+	String repeat(STRING string, INTEGER times)
+	String replace(STRING string, STRING pattern, STRING replacement)
+	String reverse(STRING arg)
+	String right(STRING string, INTEGER length)
+	round(NUMERIC number[, INTEGER places])
+	Long row_number()
+	String rpad(string, length[, padding])
+	String rtrim(STRING string[, STRING characters])
+	Integer second(TIME arg)
+	byte[] sha(arg)
+	String sha1(arg)
+	String sha2(arg0, arg1)
+	Integer sign(NUMERIC arg)
+	Double sin(NUMERIC arg)
+	Double sinh(NUMERIC arg)
+	String soundex(arg)
+	String space(INTEGER arg)
+	sql
+	Double sqrt(NUMERIC arg)
+	Double stddev(NUMERIC arg)
+	Double stddev_pop(NUMERIC arg)
+	Double stddev_samp(NUMERIC arg)
+	String str(arg)
+	String string(ENUM arg)
+	subdate(DATE datetime, INTEGER days)
+	String substr(STRING string, INTEGER start[, INTEGER length])
+	String substring(STRING string{ from|,} INTEGER start[{ for|,} INTEGER length])
+	subtime(TIME datetime, TIME time)
+	sum(arg)
+	Timestamp sysdate()
+	Double tan(NUMERIC arg)
+	Double tanh(NUMERIC arg)
+	String time(arg)
+	Timestamp timestamp(arg0[, arg1])
+	timestampadd(TEMPORAL_UNIT field, INTEGER magnitude, TEMPORAL datetime)
+	Long|Double timestampdiff(TEMPORAL_UNIT field, TEMPORAL start, TEMPORAL end)
+	String trim([[{leading|trailing|both} ][STRING arg0 ]from] STRING arg1)
+	trunc( ... )
+	truncate( ... )
+	String upper(STRING string)
+	Date utc_date
+	Time utc_time
+	Timestamp utc_timestamp
+	Double var_pop(NUMERIC arg)
+	Double var_samp(NUMERIC arg)
+	Double variance(NUMERIC arg)
+	Integer week(DATE arg)
+	Integer year(DATE arg)
+
+2026-05-31 16:46:59 DEBUG interceptor - HHH90005905: To-one property 'org.todo.data.entity.UserTaskMapping.task' was mapped with LAZY + NO_PROXY but the class was not enhanced
+2026-05-31 16:46:59 DEBUG interceptor - HHH90005905: To-one property 'org.todo.data.entity.UserTaskMapping.task' was mapped with LAZY + NO_PROXY but the class was not enhanced
+2026-05-31 16:46:59 DEBUG interceptor - HHH90005905: To-one property 'org.todo.data.entity.UserTaskMapping.user' was mapped with LAZY + NO_PROXY but the class was not enhanced
+2026-05-31 16:46:59 DEBUG interceptor - HHH90005905: To-one property 'org.todo.data.entity.UserTaskMapping.user' was mapped with LAZY + NO_PROXY but the class was not enhanced
+2026-05-31 16:46:59 DEBUG core - HHH000513: Unable to create the ReflectionOptimizer for [org.todo.data.entity.UserTaskMapping]: private accessor [task]
+2026-05-31 16:46:59 DEBUG interceptor - HHH90005905: To-one property 'org.todo.data.entity.UserTaskMapping.task' was mapped with LAZY + NO_PROXY but the class was not enhanced
+2026-05-31 16:46:59 DEBUG interceptor - HHH90005905: To-one property 'org.todo.data.entity.UserTaskMapping.user' was mapped with LAZY + NO_PROXY but the class was not enhanced
+2026-05-31 16:46:59 DEBUG core - HHH000513: Unable to create the ReflectionOptimizer for [org.todo.data.entity.User]: private accessor [name]
+2026-05-31 16:46:59 DEBUG core - HHH000513: Unable to create the ReflectionOptimizer for [org.todo.data.entity.Task]: private accessor [completionDate]
+2026-05-31 16:46:59 INFO  core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-31 16:46:59 DEBUG service - HHH010454: EventListenerRegistry access via ServiceRegistry is deprecated - use 'sessionFactory.getEventEngine().getListenerRegistry()' instead
+2026-05-31 16:46:59 DEBUG Table - No alter strings for table: Task
+2026-05-31 16:46:59 DEBUG Table - No alter strings for table: USER_TASK_MAPPING
+2026-05-31 16:46:59 DEBUG Table - No alter strings for table: users
+2026-05-31 16:46:59 DEBUG factoryRegistry - HHH020384: Registering SessionFactory [d342c996-9929-4584-bc6c-ccd503a2339c] (<unnamed>)
+2026-05-31 16:46:59 DEBUG core - HHH006588: Opening session [tenant=null]
+2026-05-31 16:47:00 DEBUG SQL - select u1_0.ID,u1_0.NAME,u1_0.PASSWORD from users u1_0
+2026-05-31 16:47:00 DEBUG metrics - HHH000401: Logging session metrics:
+	731800 ns acquiring 1 JDBC connections
+	884800 ns releasing 1 JDBC connections
+	1320300 ns preparing 1 JDBC statements
+	51473800 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+2026-05-31 16:47:00 DEBUG core - HHH006588: Opening session [tenant=null]
+2026-05-31 16:47:00 DEBUG core - HHH006583: Beginning transaction
+2026-05-31 16:47:00 DEBUG core - HHH006584: Committing transaction
+2026-05-31 16:47:00 DEBUG event - HHH90060071: Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+2026-05-31 16:47:00 DEBUG event - HHH90060072: Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2026-05-31 16:47:00 DEBUG core - Listing entities:
+2026-05-31 16:47:00 DEBUG core - org.todo.data.entity.User{password=elango, name=elango', id=0, tasks=null}
+2026-05-31 16:47:00 DEBUG SQL - insert into users (NAME,PASSWORD) values (?,?)
+2026-05-31 16:47:00 DEBUG metrics - HHH000401: Logging session metrics:
+	848000 ns acquiring 1 JDBC connections
+	840200 ns releasing 1 JDBC connections
+	367100 ns preparing 1 JDBC statements
+	14511300 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	42360700 ns executing 1 flushes (flushing a total of 1 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+2026-05-31 16:47:26 DEBUG core - HHH006588: Opening session [tenant=null]
+2026-05-31 16:47:26 DEBUG SQL - select u1_0.ID,u1_0.NAME,u1_0.PASSWORD from users u1_0 where u1_0.NAME=?
+2026-05-31 16:47:26 DEBUG metrics - HHH000401: Logging session metrics:
+	983700 ns acquiring 1 JDBC connections
+	747900 ns releasing 1 JDBC connections
+	1180900 ns preparing 1 JDBC statements
+	1375400 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+2026-05-31 16:47:27 DEBUG pooling - HHH10001015: Connection pool now considered primed; min-size will be maintained
+2026-05-31 16:47:36 DEBUG core - HHH006588: Opening session [tenant=null]
+2026-05-31 16:47:36 DEBUG SQL - select u1_0.ID,u1_0.NAME,u1_0.PASSWORD from users u1_0 where u1_0.NAME=?
+2026-05-31 16:47:36 DEBUG metrics - HHH000401: Logging session metrics:
+	1201200 ns acquiring 1 JDBC connections
+	861800 ns releasing 1 JDBC connections
+	1402200 ns preparing 1 JDBC statements
+	1354500 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+2026-05-31 16:48:38 DEBUG core - HHH006588: Opening session [tenant=null]
+2026-05-31 16:48:38 DEBUG SQL - select u1_0.ID,u1_0.NAME,u1_0.PASSWORD from users u1_0 where u1_0.NAME=?
+2026-05-31 16:48:38 DEBUG metrics - HHH000401: Logging session metrics:
+	1255400 ns acquiring 1 JDBC connections
+	12060600 ns releasing 1 JDBC connections
+	1497100 ns preparing 1 JDBC statements
+	1379700 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+2026-05-31 16:48:53 DEBUG core - HHH006588: Opening session [tenant=null]
+2026-05-31 16:48:53 DEBUG SQL - select u1_0.ID,u1_0.NAME,u1_0.PASSWORD from users u1_0 where u1_0.NAME=?
+2026-05-31 16:48:53 DEBUG metrics - HHH000401: Logging session metrics:
+	977700 ns acquiring 1 JDBC connections
+	943300 ns releasing 1 JDBC connections
+	1224600 ns preparing 1 JDBC statements
+	1357300 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+2026-05-31 16:48:55 DEBUG core - HHH006588: Opening session [tenant=null]
+2026-05-31 16:48:55 DEBUG SQL - select t1_0.TASK_ID,t1_0.COMPLETION_DATE,t1_0.CREATION_DATE,t1_0.description,t1_0.DUE_DATE,t1_0.name,t1_0.user_id from Task t1_0 join USER_TASK_MAPPING u1_0 on t1_0.TASK_ID=u1_0.TASK_ID join users u2_0 on u2_0.ID=u1_0.USER_ID where u2_0.ID=?
+2026-05-31 16:48:55 DEBUG metrics - HHH000401: Logging session metrics:
+	847700 ns acquiring 1 JDBC connections
+	2373600 ns releasing 1 JDBC connections
+	1085000 ns preparing 1 JDBC statements
+	127807700 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+2026-05-31 16:49:49 DEBUG core - HHH006588: Opening session [tenant=null]
+2026-05-31 16:49:49 DEBUG SQL - select u1_0.ID,u1_0.NAME,u1_0.PASSWORD from users u1_0 where u1_0.NAME=?
+2026-05-31 16:49:49 DEBUG metrics - HHH000401: Logging session metrics:
+	12815200 ns acquiring 1 JDBC connections
+	759700 ns releasing 1 JDBC connections
+	13030000 ns preparing 1 JDBC statements
+	1260900 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+2026-05-31 16:49:52 DEBUG core - HHH006588: Opening session [tenant=null]
+2026-05-31 16:49:52 DEBUG SQL - select t1_0.TASK_ID,t1_0.COMPLETION_DATE,t1_0.CREATION_DATE,t1_0.description,t1_0.DUE_DATE,t1_0.name,t1_0.user_id from Task t1_0 join USER_TASK_MAPPING u1_0 on t1_0.TASK_ID=u1_0.TASK_ID join users u2_0 on u2_0.ID=u1_0.USER_ID where u2_0.ID=?
+2026-05-31 16:49:52 DEBUG metrics - HHH000401: Logging session metrics:
+	907400 ns acquiring 1 JDBC connections
+	750500 ns releasing 1 JDBC connections
+	1209600 ns preparing 1 JDBC statements
+	12716800 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+2026-05-31 16:49:52 INFO  TaskDataController - Task Name : lfdbdfbnd
+Description : lkdndlfbkndf
+Creation Date : 2026-04-04T18:09:58
+Due Date : 2025-12-28T00:00
+Completion Date : Completed on 2026-04-04T18:11:13
+Task id: 11
+2026-05-31 16:50:05 DEBUG core - HHH006588: Opening session [tenant=null]
+2026-05-31 16:50:05 DEBUG SQL - select t1_0.TASK_ID,t1_0.COMPLETION_DATE,t1_0.CREATION_DATE,t1_0.description,t1_0.DUE_DATE,t1_0.name,t1_0.user_id from Task t1_0 join USER_TASK_MAPPING u1_0 on t1_0.TASK_ID=u1_0.TASK_ID join users u2_0 on u2_0.ID=u1_0.USER_ID where u2_0.ID=?
+2026-05-31 16:50:05 DEBUG metrics - HHH000401: Logging session metrics:
+	1096100 ns acquiring 1 JDBC connections
+	631700 ns releasing 1 JDBC connections
+	1413100 ns preparing 1 JDBC statements
+	1286500 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+2026-05-31 16:50:05 INFO  TaskDataController - Task Name : lfdbdfbnd
+Description : lkdndlfbkndf
+Creation Date : 2026-04-04T18:09:58
+Due Date : 2025-12-28T00:00
+Completion Date : Completed on 2026-04-04T18:11:13
+Task id: 11
+2026-05-31 16:50:08 DEBUG core - HHH006588: Opening session [tenant=null]
+2026-05-31 16:50:08 DEBUG SQL - select t1_0.TASK_ID,t1_0.COMPLETION_DATE,t1_0.CREATION_DATE,t1_0.description,t1_0.DUE_DATE,t1_0.name,t1_0.user_id from Task t1_0 where t1_0.TASK_ID=?
+2026-05-31 16:50:08 DEBUG metrics - HHH000401: Logging session metrics:
+	789400 ns acquiring 1 JDBC connections
+	808500 ns releasing 1 JDBC connections
+	1020800 ns preparing 1 JDBC statements
+	1528400 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+2026-05-31 16:50:08 DEBUG core - HHH006588: Opening session [tenant=null]
+2026-05-31 16:50:08 DEBUG core - HHH006583: Beginning transaction
+2026-05-31 16:50:08 DEBUG SQL - update Task t1_0 set COMPLETION_DATE=current_timestamp(6) where t1_0.TASK_ID=?
+2026-05-31 16:50:08 DEBUG core - HHH006584: Committing transaction
+2026-05-31 16:50:08 DEBUG metrics - HHH000401: Logging session metrics:
+	734500 ns acquiring 1 JDBC connections
+	963700 ns releasing 1 JDBC connections
+	148500 ns preparing 1 JDBC statements
+	16376400 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	30200 ns executing 1 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	273600 ns executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+2026-05-31 16:50:08 INFO  TaskDataController - Task marked as complete.
+2026-05-31 16:50:11 DEBUG core - HHH006588: Opening session [tenant=null]
+2026-05-31 16:50:11 DEBUG SQL - select t1_0.TASK_ID,t1_0.COMPLETION_DATE,t1_0.CREATION_DATE,t1_0.description,t1_0.DUE_DATE,t1_0.name,t1_0.user_id from Task t1_0 join USER_TASK_MAPPING u1_0 on t1_0.TASK_ID=u1_0.TASK_ID join users u2_0 on u2_0.ID=u1_0.USER_ID where u2_0.ID=?
+2026-05-31 16:50:11 DEBUG metrics - HHH000401: Logging session metrics:
+	885000 ns acquiring 1 JDBC connections
+	942900 ns releasing 1 JDBC connections
+	1173500 ns preparing 1 JDBC statements
+	1595400 ns executing 1 JDBC statements
+	0 ns executing 0 JDBC batches
+	0 ns performing 0 second-level cache puts
+	0 ns performing 0 second-level cache hits
+	0 ns performing 0 second-level cache misses
+	0 ns executing 0 flushes (flushing a total of 0 entities and 0 collections)
+	0 ns executing 0 pre-partial-flushes
+	0 ns executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+
+2026-05-31 16:50:11 INFO  TaskDataController - Task Name : lfdbdfbnd
+Description : lkdndlfbkndf
+Creation Date : 2026-04-04T18:09:58
+Due Date : 2025-12-28T00:00
+Completion Date : Completed on 2026-05-31T16:50:09
+Task id: 11

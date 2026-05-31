@@ -12,7 +12,6 @@ import org.todo.data.entity.User;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Optional;
 import java.util.Scanner;
@@ -21,6 +20,7 @@ public class Main {
 private static Logger logger = LogManager.getLogger(Main.class.getName());
     public static void main(String[] args) {
         logger.log(Level.INFO, "Starting the Application....");
+        IOCContainer.initializeAppContext();
         boolean run = true;
         Scanner scanner = new Scanner(System.in);
         while(run){
@@ -39,7 +39,7 @@ private static Logger logger = LogManager.getLogger(Main.class.getName());
                 case 2:
                     User user = createUser(scanner);
                     Optional<AuthResult> authResult = UserDataController.performAuth(user);
-                    authUser(authResult.orElse(new AuthResult(2)));
+                    authUser(authResult.orElse(IOCContainer.getAppContext().getBean("AuthResult",AuthResult.class)));
                     break;
                 case 3:
                     DatabaseConnector.getInstance().closeConnection();
@@ -64,7 +64,7 @@ private static Logger logger = LogManager.getLogger(Main.class.getName());
 
     }
     private static User createUser(Scanner scanner){
-        User user = new User();
+        User user = IOCContainer.getAppContext().getBean("User",User.class);
         System.out.println("\nEnter Name:");
         user.setName(scanner.nextLine());
         System.out.println("\nEnter Password:");
@@ -122,7 +122,9 @@ private static Logger logger = LogManager.getLogger(Main.class.getName());
                     }catch(Exception exception){
                         exception.printStackTrace();
                     }
-                    Task createdTask = new Task(taskName,description);
+                    Task createdTask = IOCContainer.getAppContext().getBean("Task",Task.class);
+                    createdTask.setName(taskName);
+                    createdTask.setDescription(description);
                     createdTask.setDueDate(new Timestamp(date.getTime()));
                     createdTask.setCreationDate(new Timestamp(System.currentTimeMillis()));
                     createdTask.setUser_id(user.getId());

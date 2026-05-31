@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
+import org.todo.IOCContainer;
 import org.todo.data.entity.Task;
 import org.todo.data.entity.User;
 import org.todo.data.entity.UserTaskMapId;
@@ -17,8 +18,11 @@ public class UserTaskMappingDBUtil {
     public static int createTaskUserJoin(Task task, User user){
         String creationMappingQuery = "INSERT INTO USER_TASK_MAPPING (USER_ID,TASK_ID) VALUES (?,?);";
         try(Session session = HibernateController.getSession().openSession()){
-            UserTaskMapping utm = new UserTaskMapping();
-            utm.setId(new UserTaskMapId(task.getTask_id(),user.getId()));
+            UserTaskMapping utm = IOCContainer.getAppContext().getBean("UserTaskMapping", UserTaskMapping.class);
+            UserTaskMapId userTaskMapId = IOCContainer.getAppContext().getBean("UserTaskMapId",UserTaskMapId.class);
+            userTaskMapId.setTask_id(task.getTask_id());
+            userTaskMapId.setUser_id(user.getId());
+            utm.setId(userTaskMapId);
             utm.setUser(user);
             utm.setTask(task);
             Transaction transaction = session.beginTransaction();
