@@ -11,6 +11,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.hibernate.query.SelectionQuery;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.todo.data.entity.Task;
 import org.todo.data.entity.User;
 import org.todo.data.entity.UserTaskMapId;
@@ -23,15 +24,17 @@ import java.util.List;
 import java.util.Optional;
 
 public class TaskDBUtil {
-    private static final Logger LOGGER = LogManager.getLogger(TaskDBUtil.class.getName());
-    public static int createTask(Task task, User user){
+    private final Logger LOGGER = LogManager.getLogger(TaskDBUtil.class.getName());
+    @Autowired
+    UserTaskMappingDBUtil userTaskMappingDBUtil;
+    public int createTask(Task task, User user){
         String taskCreationQuery = "INSERT INTO TASK (NAME,DESCRIPTION,CREATION_DATE,DUE_DATE) VALUES (?,?,CURRENT_TIMESTAMP,?)";
         try(Session session = HibernateController.getSession().openSession()){
             Transaction transaction = session.beginTransaction();
             session.persist(task);
             transaction.commit();
             if(transaction.isComplete() && transaction.getStatus() == TransactionStatus.COMMITTED) {
-                return UserTaskMappingDBUtil.createTaskUserJoin(task, user);
+                return userTaskMappingDBUtil.createTaskUserJoin(task, user);
             }
         }
         catch(Exception exception){
@@ -39,7 +42,7 @@ public class TaskDBUtil {
         }
         return 0;
     }
-    public static int markTaskAsCompleted(Task task){
+    public int markTaskAsCompleted(Task task){
         if(task != null) {
             String taskCompletionQuery = "UPDATE TABLE TASK SET COMPLETION_DATE=CURRENT_DATE WHERE TASK_ID=?;";
             try(Session session = HibernateController.getSession().openSession()){
@@ -61,7 +64,7 @@ public class TaskDBUtil {
         }
         return 0;
     }
-    public static List<Task> getTaskWithUser(User user){
+    public List<Task> getTaskWithUser(User user){
         String createSelectQuery = "SELECT UTM.USER_ID, UTM.TASK_ID, TA.NAME, TA.DESCRIPTION, TA.CREATION_DATE, TA.DUE_DATE, TA.COMPLETION_DATE FROM USER_TASK_MAPPING UTM INNER JOIN TASK TA ON UTM.TASK_ID = TA.TASK_ID WHERE UTM.USER_ID = ?;";
         List<Task> tasks = new ArrayList<>();
         try(Session session = HibernateController.getSession().openSession()){
@@ -90,7 +93,7 @@ public class TaskDBUtil {
         }
         return tasks;
     }
-    public static Optional<Task> getTaskUsingTaskId(int taskId){
+    public Optional<Task> getTaskUsingTaskId(int taskId){
         Task task = null;
         try(Session session = HibernateController.getSession().openSession()){
             CriteriaBuilder builder = session.getCriteriaBuilder();

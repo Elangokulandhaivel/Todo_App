@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.todo.IOCContainer;
 import org.todo.data.entity.Task;
 import org.todo.data.entity.User;
@@ -14,12 +15,14 @@ import org.todo.data.entity.UserTaskMapping;
 import org.todo.data.orm.HibernateController;
 
 public class UserTaskMappingDBUtil {
-    private static final Logger LOGGER = LogManager.getLogger(UserTaskMappingDBUtil.class.getName());
-    public static int createTaskUserJoin(Task task, User user){
+    private final Logger LOGGER = LogManager.getLogger(UserTaskMappingDBUtil.class.getName());
+    @Autowired
+    IOCContainer iocContainer;
+    public int createTaskUserJoin(Task task, User user){
         String creationMappingQuery = "INSERT INTO USER_TASK_MAPPING (USER_ID,TASK_ID) VALUES (?,?);";
         try(Session session = HibernateController.getSession().openSession()){
-            UserTaskMapping utm = IOCContainer.getAppContext().getBean("UserTaskMapping", UserTaskMapping.class);
-            UserTaskMapId userTaskMapId = IOCContainer.getAppContext().getBean("UserTaskMapId",UserTaskMapId.class);
+            UserTaskMapping utm = iocContainer.getAppContext().getBean("UserTaskMapping", UserTaskMapping.class);
+            UserTaskMapId userTaskMapId = iocContainer.getAppContext().getBean("UserTaskMapId",UserTaskMapId.class);
             userTaskMapId.setTask_id(task.getTask_id());
             userTaskMapId.setUser_id(user.getId());
             utm.setId(userTaskMapId);

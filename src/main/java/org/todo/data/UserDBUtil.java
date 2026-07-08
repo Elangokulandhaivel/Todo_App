@@ -22,8 +22,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class UserDBUtil {
-    private static final Logger LOGGER = LogManager.getLogger(UserDBUtil.class.getName());
-    public static int createUser(User user){
+    private final Logger LOGGER = LogManager.getLogger(UserDBUtil.class.getName());
+    public int createUser(User user){
         try(Session session = HibernateController.getSession().openSession()){
             session.persist("User",user);
             Transaction transaction = session.beginTransaction();
@@ -55,7 +55,7 @@ public class UserDBUtil {
 //        }
         return 1;
     }
-    public static Optional<List<User>> getUsers(){
+    public Optional<List<User>> getUsers(){
         try(Session session = HibernateController.getSession().openSession()){
             SelectionQuery<User> query = session.createSelectionQuery("FROM User",User.class);
             return Optional.of(query.getResultList());
@@ -81,7 +81,7 @@ public class UserDBUtil {
 //        }
         return Optional.empty();
     }
-    public static Optional<User> getUser(String userName){
+    public Optional<User> getUser(String userName){
         try(Session session = HibernateController.getSession().openSession()){
             Query<User> query = session.createQuery("FROM User us WHERE us.name = ?1",User.class);
             query.setParameter(1,userName);

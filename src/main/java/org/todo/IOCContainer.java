@@ -1,14 +1,16 @@
 package org.todo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class IOCContainer {
-    private static ApplicationContext context;
-    protected static void initializeAppContext(){
-        IOCContainer.context = new ClassPathXmlApplicationContext("beans.xml");
+    @Autowired
+    private ApplicationContext context;
+    protected void initializeAppContext(){
+        this.context = new ClassPathXmlApplicationContext("../WEB-INF/beans.xml");
     }
-    public static ApplicationContext getAppContext(){
-        return IOCContainer.context;
+    public ApplicationContext getAppContext(){
+        return this.context;
     }
 }
