@@ -19,7 +19,7 @@ import java.io.PrintWriter;
 public class TaskServlet extends HttpServlet {
     private static final Logger LOGGER = LogManager.getLogger(TaskServlet.class.getName());
 
-    ApplicationContext context;
+    private ApplicationContext context;
 
     @Override
     public void init() throws ServletException {
