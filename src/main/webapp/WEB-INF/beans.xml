@@ -8,7 +8,8 @@
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context.xsd">
     <context:annotation-config />
-    <context:component-scan base-package="org.todo" />
+    <context:component-scan base-package="org.todo.service,org.todo.data" />
+    <bean id="AppConfig" class="org.todo.AppConfig"/>
 <!--    <bean id="Main" class="org.todo.Main">-->
 <!--    </bean>-->
 <!--    <bean id="User"-->
@@ -31,9 +32,9 @@
 
 <!--    <bean id="UserTaskMapId" class="org.todo.data.entity.UserTaskMapId">-->
 <!--    </bean>-->
-<!--    <bean id="UserDataController" class="org.todo.controller.UserDataController">-->
+<!--    <bean id="UserDataController" class="org.todo.service.UserDataController">-->
 <!--    </bean>-->
-<!--    <bean id="TaskDataController" class="org.todo.controller.TaskDataController">-->
+<!--    <bean id="TaskDataController" class="org.todo.service.TaskDataController">-->
 <!--    </bean>-->
 <!--    <bean id="TaskDBUtil" class="org.todo.data.TaskDBUtil">-->
 <!--    </bean>-->

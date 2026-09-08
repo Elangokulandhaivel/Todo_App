@@ -1,5 +1,6 @@
 package org.todo.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.sql.Timestamp;
 @Data @Entity @NoArgsConstructor
 public class Task{
+    @JsonIgnore
     private int user_id;
     @Id
     @Column(name = "TASK_ID")
@@ -26,6 +28,7 @@ public class Task{
     @Column(name = "COMPLETION_DATE")
     private Timestamp completionDate;
     @OneToMany(mappedBy = "task")
+    @JsonIgnore
     private List<UserTaskMapping> users;
 
     public Task(String name, String description){

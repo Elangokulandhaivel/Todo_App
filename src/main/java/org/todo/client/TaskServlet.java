@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.todo.controller.TaskDataController;
+import org.todo.service.TaskDataController;
 import org.todo.data.entity.User;
 
 import java.io.IOException;
@@ -36,7 +36,7 @@ public class TaskServlet extends HttpServlet {
         User user = context.getBean("User", User.class);
         user.setId(Integer.parseInt(userId));
         TaskDataController taskDataController = context.getBean("TaskDataController",TaskDataController.class);
-        JSONObject tasks = taskDataController.listTaskWithUserId(user);
+        JSONObject tasks = taskDataController.listTaskWithUserIdReturnJSON(user);
         setReponse(response,tasks.toString());
     }
     private void setReponse(HttpServletResponse response,String reponseContent) throws IOException {

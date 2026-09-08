@@ -4,9 +4,8 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.todo.controller.TaskDataController;
-import org.todo.controller.UserDataController;
-import org.todo.data.DatabaseConnector;
+import org.todo.service.TaskDataController;
+import org.todo.service.UserDataController;
 import org.todo.data.entity.AuthResult;
 import org.todo.data.entity.Task;
 import org.todo.data.entity.User;
@@ -114,10 +113,10 @@ private static Logger logger = LogManager.getLogger(Main.class.getName());
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1:
-                    taskDataController.listTaskWithUserId(user);
+                    taskDataController.listTaskWithUserIdReturnJSON(user);
                     break;
                 case 2:
-                    taskDataController.listTaskWithUserId(user);
+                    taskDataController.listTaskWithUserIdReturnJSON(user);
                     System.out.println("Enter the task id to mark as complete.\n");
                     int task_id = Integer.parseInt(sc.nextLine());
                     Task task = taskDataController.getTaskUsingTaskId(task_id);
