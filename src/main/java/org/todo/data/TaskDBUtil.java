@@ -12,17 +12,16 @@ import org.hibernate.query.Query;
 import org.hibernate.query.SelectionQuery;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.todo.data.entity.Task;
 import org.todo.data.entity.User;
-import org.todo.data.entity.UserTaskMapId;
 import org.todo.data.entity.UserTaskMapping;
 import org.todo.data.orm.HibernateController;
 
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+@Repository
 public class TaskDBUtil {
     private final Logger LOGGER = LogManager.getLogger(TaskDBUtil.class.getName());
     @Autowired

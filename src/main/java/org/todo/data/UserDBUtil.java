@@ -2,6 +2,9 @@ package org.todo.data;
 
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.NonUniqueResultException;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,6 +13,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.hibernate.query.SelectionQuery;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
+import org.springframework.stereotype.Repository;
 import org.todo.data.entity.User;
 import org.todo.data.orm.HibernateController;
 
@@ -20,7 +24,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+@Repository
 public class UserDBUtil {
     private final Logger LOGGER = LogManager.getLogger(UserDBUtil.class.getName());
     public int createUser(User user){
@@ -109,6 +113,24 @@ public class UserDBUtil {
 //        catch(Exception exception){
 //            LOGGER.log(Level.ERROR,exception);
 //        }
+        return Optional.empty();
+    }
+
+    public Optional<User> getUserWithId(int id){
+        try(Session session = HibernateController.getSession().openSession()){
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<User> query = builder.createQuery(User.class);
+            Root<User> root = query.from(User.class);
+            query.select(root).where(builder.equal(root.get("id"),id));
+            return Optional.of(session.createQuery(query).uniqueResult());
+//            Query<User> query = session.createQuery("FROM User us WHERE us.id = ?1",User.class);
+//            query.setParameter(1,id);
+//            User user = query.getSingleResult();
+//            return Optional.of(user);
+        }
+        catch (NoResultException | NonUniqueResultException noResultException){
+            LOGGER.log(Level.ERROR,noResultException);
+        }
         return Optional.empty();
     }
 }

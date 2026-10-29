@@ -32,30 +32,30 @@ public class AppConfig {
     public UserTaskMapping userTaskMapping(){
         return new UserTaskMapping();
     }
-    @Bean(name = "UserTaskMappingDBUtil")
-    public UserTaskMappingDBUtil userTaskMappingDBUtil(){
-        return new UserTaskMappingDBUtil();
-    }
+//    @Bean(name = "UserTaskMappingDBUtil")
+//    public UserTaskMappingDBUtil userTaskMappingDBUtil(){
+//        return new UserTaskMappingDBUtil();
+//    }
     @Bean(name = "UserTaskMapId")
     public UserTaskMapId userTaskMapId(){
         return new UserTaskMapId();
     }
-    @Bean(name = "UserDataController")
-    public UserDataController userDataController(){
-        return new UserDataController();
-    }
-    @Bean(name = "TaskDataController")
-    public TaskDataController taskDataController(){
-        return new TaskDataController();
-    }
-    @Bean(name = "TaskDBUtil")
-    public TaskDBUtil taskDBUtil(){
-        return new TaskDBUtil();
-    }
-    @Bean(name = "UserDBUtil")
-    public UserDBUtil userDBUtil(){
-        return new UserDBUtil();
-    }
+//    @Bean(name = "UserDataController")
+//    public UserDataController userDataController(){
+//        return new UserDataController();
+//    }
+//    @Bean(name = "TaskDataController")
+//    public TaskDataController taskDataController(){
+//        return new TaskDataController();
+//    }
+//    @Bean(name = "TaskDBUtil")
+//    public TaskDBUtil taskDBUtil(){
+//        return new TaskDBUtil();
+//    }
+//    @Bean(name = "UserDBUtil")
+//    public UserDBUtil userDBUtil(){
+//        return new UserDBUtil();
+//    }
     @Bean(name = "IOCContainer")
     public IOCContainer iocContainer(){
         return new IOCContainer();

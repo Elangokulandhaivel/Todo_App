@@ -7,13 +7,14 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.todo.IOCContainer;
 import org.todo.data.entity.Task;
 import org.todo.data.entity.User;
 import org.todo.data.entity.UserTaskMapId;
 import org.todo.data.entity.UserTaskMapping;
 import org.todo.data.orm.HibernateController;
-
+@Repository
 public class UserTaskMappingDBUtil {
     private final Logger LOGGER = LogManager.getLogger(UserTaskMappingDBUtil.class.getName());
     @Autowired

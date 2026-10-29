@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.todo.data.entity.Task;
 import org.todo.data.TaskDBUtil;
 import org.todo.data.entity.User;
@@ -13,25 +14,29 @@ import org.todo.data.entity.User;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class TaskDataController {
     private final Logger LOGGER = LogManager.getLogger(TaskDataController.class.getName());
     @Autowired
     TaskDBUtil taskDBUtil;
-    public void createTask(Task task, User user){
+    public int createTask(Task task, User user){
         if(taskDBUtil.createTask(task, user)==1){
             LOGGER.log(Level.INFO,"Task created successfully");
+            return 1;
         }
         else{
             LOGGER.log(Level.INFO,"Task creation failed");
+            return 0;
         }
     }
-    public void markTaskAsComplete(Task task){
+    public int markTaskAsComplete(Task task){
         if(taskDBUtil.markTaskAsCompleted(task)==1){
             LOGGER.log(Level.INFO,"Task marked as complete.");
+            return 1;
         }
         else{
             LOGGER.log(Level.INFO,"Task was not marked as complete");
+            return 0;
         }
     }
     public JSONObject listTaskWithUserIdReturnJSON(User user){

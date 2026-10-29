@@ -8,7 +8,7 @@ import java.lang.ref.Cleaner;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import org.apache.logging.log4j.Logger;
-
+@Deprecated
 public class DatabaseConnector {
     private final Logger LOGGER = LogManager.getLogger(DatabaseConnector.class.getName());
     private DatabaseConnector(){
