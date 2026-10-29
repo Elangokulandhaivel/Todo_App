@@ -7,7 +7,7 @@ import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.todo.IOCContainer;
-import org.todo.data.UserDBUtil;
+import org.todo.data.UserRepository;
 import org.todo.data.entity.AuthResult;
 import org.todo.data.entity.User;
 
@@ -15,24 +15,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 @Service
-public class UserDataController {
-    private final Logger LOGGER = LogManager.getLogger(UserDataController.class.getName());
+public class UserService {
+    private final Logger LOGGER = LogManager.getLogger(UserService.class.getName());
     @Autowired
-    UserDBUtil userDBUtil;
+    UserRepository userRepository;
     @Autowired
     IOCContainer iocContainer;
     @Autowired
     ObjectProvider<AuthResult> authResults;
     public int createUser(User user){
-        List<User> users = userDBUtil.getUsers().orElse(new ArrayList<>());
+        List<User> users = userRepository.getUsers().orElse(new ArrayList<>());
         if(users.stream().anyMatch(element -> element.getName().equals(user.getName()))){
             return 1;
         }
-        int result = userDBUtil.createUser(user);
+        int result = userRepository.createUser(user);
         return result==1?0:2;
     }
     public Optional<AuthResult> performAuth(User user){
-        Optional<User> userFromDB = userDBUtil.getUser(user.getName());
+        Optional<User> userFromDB = userRepository.getUser(user.getName());
         AuthResult authResult = authResults.getObject();
         if(userFromDB.isEmpty()) {
             LOGGER.log(Level.WARN,"There was problem in getting user details...");
@@ -50,6 +50,6 @@ public class UserDataController {
         return Optional.of(authResult);
     }
     public Optional<User> getUserWithId(int id){
-        return userDBUtil.getUserWithId(id);
+        return userRepository.getUserWithId(id);
     }
 }

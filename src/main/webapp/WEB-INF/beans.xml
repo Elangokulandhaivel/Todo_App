@@ -11,36 +11,4 @@
     <context:component-scan base-package="org.todo.service,org.todo.data" />
     <bean id="AppConfig" class="org.todo.AppConfig"/>
     <bean id="AppSecurityConfig" class="org.todo.AppSecurityConfig"/>
-<!--    <bean id="Main" class="org.todo.Main">-->
-<!--    </bean>-->
-<!--    <bean id="User"-->
-<!--          class="org.todo.data.entity.User" scope="prototype"/>-->
-
-<!--    <bean id="Task"-->
-<!--          class="org.todo.data.entity.Task" scope="prototype">-->
-<!--    </bean>-->
-
-<!--    <bean id="AuthResult"-->
-<!--          class="org.todo.data.entity.AuthResult" scope="prototype">-->
-<!--        <constructor-arg index="0" type="int" value="2" />-->
-<!--    </bean>-->
-
-<!--    <bean id="UserTaskMapping" class="org.todo.data.entity.UserTaskMapping" scope="prototype">-->
-<!--    </bean>-->
-
-<!--    <bean id="UserTaskMappingDBUtil" class="org.todo.data.UserTaskMappingDBUtil">-->
-<!--    </bean>-->
-
-<!--    <bean id="UserTaskMapId" class="org.todo.data.entity.UserTaskMapId">-->
-<!--    </bean>-->
-<!--    <bean id="UserDataController" class="org.todo.service.UserDataController">-->
-<!--    </bean>-->
-<!--    <bean id="TaskDataController" class="org.todo.service.TaskDataController">-->
-<!--    </bean>-->
-<!--    <bean id="TaskDBUtil" class="org.todo.data.TaskDBUtil">-->
-<!--    </bean>-->
-<!--    <bean id="UserDBUtil" class="org.todo.data.UserDBUtil">-->
-<!--    </bean>-->
-<!--    <bean id="IOCContainer" class="org.todo.IOCContainer">-->
-<!--    </bean>-->
 </beans>

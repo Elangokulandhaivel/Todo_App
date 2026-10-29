@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.todo.data.UserRoleMappingRepository;
 @Service
-public class DatabaseUserDetails implements UserDetailsService {
+public class DatabaseUserDetailsService implements UserDetailsService {
     @Autowired
     UserRoleMappingRepository userRoleMappingRepository;
     @Override

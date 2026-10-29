@@ -4,8 +4,8 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.todo.service.TaskDataController;
-import org.todo.service.UserDataController;
+import org.todo.service.TaskService;
+import org.todo.service.UserService;
 import org.todo.data.entity.AuthResult;
 import org.todo.data.entity.Task;
 import org.todo.data.entity.User;
@@ -19,9 +19,9 @@ import java.util.Scanner;
 public class Main {
 private static Logger logger = LogManager.getLogger(Main.class.getName());
     @Autowired
-    UserDataController userDataController;
+    UserService userService;
     @Autowired
-    TaskDataController taskDataController;
+    TaskService taskService;
     @Autowired
     IOCContainer iocContainer;
     public static void main(String[] args) {
@@ -46,11 +46,11 @@ private static Logger logger = LogManager.getLogger(Main.class.getName());
             }
             switch(option){
                 case 1:
-                    userDataController.createUser(createUser(scanner));
+                    userService.createUser(createUser(scanner));
                     break;
                 case 2:
                     User user = createUser(scanner);
-                    Optional<AuthResult> authResult = userDataController.performAuth(user);
+                    Optional<AuthResult> authResult = userService.performAuth(user);
                     authUser(authResult.orElse(iocContainer.getAppContext().getBean("AuthResult",AuthResult.class)));
                     break;
                 case 3:
@@ -113,14 +113,14 @@ private static Logger logger = LogManager.getLogger(Main.class.getName());
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1:
-                    taskDataController.listTaskWithUserIdReturnJSON(user);
+                    taskService.listTaskWithUserIdReturnJSON(user);
                     break;
                 case 2:
-                    taskDataController.listTaskWithUserIdReturnJSON(user);
+                    taskService.listTaskWithUserIdReturnJSON(user);
                     System.out.println("Enter the task id to mark as complete.\n");
                     int task_id = Integer.parseInt(sc.nextLine());
-                    Task task = taskDataController.getTaskUsingTaskId(task_id);
-                    taskDataController.markTaskAsComplete(task);
+                    Task task = taskService.getTaskUsingTaskId(task_id);
+                    taskService.markTaskAsComplete(task);
                     break;
                 case 3:
                     System.out.println("Enter Name of Task:");
@@ -140,7 +140,7 @@ private static Logger logger = LogManager.getLogger(Main.class.getName());
                     createdTask.setDueDate(new Timestamp(date.getTime()));
                     createdTask.setCreationDate(new Timestamp(System.currentTimeMillis()));
                     createdTask.setUser_id(user.getId());
-                    taskDataController.createTask(createdTask, user);
+                    taskService.createTask(createdTask, user);
                     break;
                 case 4:
                     flag = false;
