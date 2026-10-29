@@ -17,6 +17,8 @@ public class AppSecurityConfig {
                 authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(new AntPathRequestMatcher("/todo/tasks")).hasRole("USER")
                         .requestMatchers(new AntPathRequestMatcher("/todo/auth")).hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(new AntPathRequestMatcher("/todo/createTask")).hasAuthority("ROLE_USER")
+                        .requestMatchers(new AntPathRequestMatcher("/todo/markTaskAsCompleted")).hasAuthority("ROLE_USER")
                 .anyRequest().denyAll()
         ).formLogin(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable());

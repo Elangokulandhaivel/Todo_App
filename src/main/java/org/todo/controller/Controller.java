@@ -41,6 +41,7 @@ public class Controller {
     @PostMapping("/createTask")
     @ResponseBody
     public int createTask(@RequestBody Task task,@RequestParam(name = "userId") int userId){
+        task.setUser_id(userId);
         User user =  userDataController.getUserWithId(task.getUser_id()).orElseGet(()->{
             User newUser = userProvider.getObject();
             newUser.setId(userId);

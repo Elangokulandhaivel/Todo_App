@@ -128,8 +128,8 @@ public class UserDBUtil {
 //            User user = query.getSingleResult();
 //            return Optional.of(user);
         }
-        catch (NoResultException | NonUniqueResultException noResultException){
-            LOGGER.log(Level.ERROR,noResultException);
+        catch (Exception exception){
+            LOGGER.log(Level.ERROR,"Exceptio during get the user with userID...",exception);
         }
         return Optional.empty();
     }
