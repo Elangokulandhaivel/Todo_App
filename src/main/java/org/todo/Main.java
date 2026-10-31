@@ -3,23 +3,35 @@ package org.todo;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.todo.controller.TaskDataController;
-import org.todo.controller.UserDataController;
-import org.todo.data.DatabaseConnector;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.todo.service.TaskService;
+import org.todo.service.UserService;
 import org.todo.data.entity.AuthResult;
 import org.todo.data.entity.Task;
 import org.todo.data.entity.User;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Optional;
 import java.util.Scanner;
 
 public class Main {
 private static Logger logger = LogManager.getLogger(Main.class.getName());
+    @Autowired
+    UserService userService;
+    @Autowired
+    TaskService taskService;
+    @Autowired
+    IOCContainer iocContainer;
     public static void main(String[] args) {
+//        initializeIOC().startApp();
+    }
+    private Main initializeIOC(){
+        //        IOCContainer.initializeAppContext();
+        return iocContainer.getAppContext().getBean("Main",Main.class);
+    }
+    private void startApp(){
         logger.log(Level.INFO, "Starting the Application....");
         boolean run = true;
         Scanner scanner = new Scanner(System.in);
@@ -34,15 +46,15 @@ private static Logger logger = LogManager.getLogger(Main.class.getName());
             }
             switch(option){
                 case 1:
-                    UserDataController.createUser(createUser(scanner));
+                    userService.createUser(createUser(scanner));
                     break;
                 case 2:
                     User user = createUser(scanner);
-                    Optional<AuthResult> authResult = UserDataController.performAuth(user);
-                    authUser(authResult.orElse(new AuthResult(2)));
+                    Optional<AuthResult> authResult = userService.performAuth(user);
+                    authUser(authResult.orElse(iocContainer.getAppContext().getBean("AuthResult",AuthResult.class)));
                     break;
                 case 3:
-                    DatabaseConnector.getInstance().closeConnection();
+//                    DatabaseConnector.getInstance().closeConnection();
                     run = false;
                     System.out.println("Exited...");
                     break;
@@ -63,8 +75,8 @@ private static Logger logger = LogManager.getLogger(Main.class.getName());
         }
 
     }
-    private static User createUser(Scanner scanner){
-        User user = new User();
+    private User createUser(Scanner scanner){
+        User user = iocContainer.getAppContext().getBean("User",User.class);
         System.out.println("\nEnter Name:");
         user.setName(scanner.nextLine());
         System.out.println("\nEnter Password:");
@@ -72,7 +84,7 @@ private static Logger logger = LogManager.getLogger(Main.class.getName());
         return user;
     }
 
-    private static void authUser(AuthResult authResult){
+    private void authUser(AuthResult authResult){
         switch(authResult.getResult()){
             case 0:
                 System.out.println("Auth Success");
@@ -93,7 +105,7 @@ private static Logger logger = LogManager.getLogger(Main.class.getName());
         }
     }
 
-    private static void taskView(User user){
+    private void taskView(User user){
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
         while (flag) {
@@ -101,14 +113,14 @@ private static Logger logger = LogManager.getLogger(Main.class.getName());
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1:
-                    TaskDataController.listTaskWithUserId(user);
+                    taskService.listTaskWithUserIdReturnJSON(user);
                     break;
                 case 2:
-                    TaskDataController.listTaskWithUserId(user);
+                    taskService.listTaskWithUserIdReturnJSON(user);
                     System.out.println("Enter the task id to mark as complete.\n");
                     int task_id = Integer.parseInt(sc.nextLine());
-                    Task task = TaskDataController.getTaskUsingTaskId(task_id);
-                    TaskDataController.markTaskAsComplete(task);
+                    Task task = taskService.getTaskUsingTaskId(task_id);
+                    taskService.markTaskAsComplete(task);
                     break;
                 case 3:
                     System.out.println("Enter Name of Task:");
@@ -122,11 +134,13 @@ private static Logger logger = LogManager.getLogger(Main.class.getName());
                     }catch(Exception exception){
                         exception.printStackTrace();
                     }
-                    Task createdTask = new Task(taskName,description);
+                    Task createdTask = iocContainer.getAppContext().getBean("Task",Task.class);
+                    createdTask.setName(taskName);
+                    createdTask.setDescription(description);
                     createdTask.setDueDate(new Timestamp(date.getTime()));
                     createdTask.setCreationDate(new Timestamp(System.currentTimeMillis()));
                     createdTask.setUser_id(user.getId());
-                    TaskDataController.createTask(createdTask, user);
+                    taskService.createTask(createdTask, user);
                     break;
                 case 4:
                     flag = false;

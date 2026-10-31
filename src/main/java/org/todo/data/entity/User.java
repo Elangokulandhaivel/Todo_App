@@ -1,5 +1,6 @@
 package org.todo.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -21,5 +22,9 @@ public class User{
     @Column(name = "PASSWORD")
     private String password;
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<UserTaskMapping> tasks;
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private List<UserRoleMapping> roles;
 }
